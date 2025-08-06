@@ -1,0 +1,23 @@
+.diasMenuBox{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: var(--gray-900);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+.diasMenuBox:hover{
+    cursor: pointer;
+    background-color: var(--gray-800);
+    color: var(--white);
+}
+
+.activeDia{
+    background-color: var(--blue-normal) !important;
+    color: var(--white) !important;
+}

@@ -26,10 +26,12 @@
     --orange-light: #ffedd5;
     --orange-normal: #f97316;
     --orange-hover: #c2410c;
+
+    --blue-normal: #2563eb;
+    --blue-hover:#153fb2;
 }
 
 body {
-    font-family: sans-serif;
     background-color: var(--white);
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -85,11 +87,15 @@ body {
 
 .centerMenu {
     width: 90%;
-    max-width: 600px;
+    max-width: 700px;
     height: 40px;
     border-radius: 10px;
     border: 1px solid var(--gray-800);
     background-color: var(--gray-900);
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 3px;
 }
 
 .rightMenu {
@@ -115,12 +121,12 @@ body {
 }
 
 .btnAgregarDocente:hover {
-    background-color: var(--green-normal);
-    border: 1px solid var(--green-normal);
+    background-color: var(--blue-normal);
+    border: 1px solid var(--blue-normal);
     cursor: pointer;
 }
 .btnAgregarDocente:active{
-    background-color: var(--green-hover);
+    background-color: var(--blue-hover);
 }
 
 .btnAgregarDocente p {
