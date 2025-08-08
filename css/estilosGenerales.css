@@ -1,35 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-:root {
-    --white: #ffffff;
-
-    --gray-50: #fafafa;
-    --gray-100: #f5f5f5;
-    --gray-200: #e5e5e5;
-    --gray-300: #d4d4d4;
-    --gray-400: #a3a3a3;
-    --gray-500: #737373;
-    --gray-600: #525252;
-    --gray-700: #404040;
-    --gray-800: #262626;
-    --gray-900: #171717;
-    --gray-950: #0a0a0a;
-
-    --red-light: #fee2e2;
-    --red-normal: #ef4444;
-    --red-hover: #b91c1c;
-
-    --green-light: #dcfce7;
-    --green-normal: #17a14a;
-    --green-hover: #087630;
-
-    --orange-light: #ffedd5;
-    --orange-normal: #f97316;
-    --orange-hover: #c2410c;
-
-    --blue-normal: #2563eb;
-    --blue-hover:#153fb2;
-}
+@import url('colorPalette.css');
 
 body {
     background-color: var(--white);
@@ -37,6 +8,194 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
 }
+
+/* css para el sidebar y sus elementos */
+.contenedorSidebar{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: none;
+    transition: all 0.2s ease;
+}
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background-color: var(--gray-950);
+    border-right: 1px solid var(--gray-500);
+    box-shadow: 5px 0px 20px 0px rgba(0, 0, 0, 0.86);
+    -webkit-box-shadow: 5px 0px 20px 0px rgba(0, 0, 0, 0.86);
+    -moz-box-shadow: 5px 0px 20px 0px rgba(0, 0, 0, 0.86);
+}
+
+.innerSidebar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.topSidebar {
+    width: 100%;
+}
+
+.logoBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--gray-600);
+    background-image: url("../img/pic.jpg");
+    background-size: cover;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.topLogo {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    color: var(--white);
+    padding: 5px 0 0 0;
+}
+
+.topLogo span {
+    font-size: 22px;
+}
+.closeSidebarBox{
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gray-950);
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 1);
+    position: relative;
+    left: 16px;
+    top: 5px;
+    transition: all 0.2s ease;
+}
+.closeSidebarBox:hover{
+    cursor: pointer;
+    background-color: var(--red-hover);
+    border: 1px solid var(--red-normal);
+    color: var(--white);
+}
+
+.logoImg {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    border: 5px solid var(--white);
+    background-color: var(--gray-800);
+    background-image: url("../CERP.png");
+    background-size: cover;
+    box-shadow: 0px 10px 58px 0px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 10px 58px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 10px 58px 0px rgba(0, 0, 0, 1);
+}
+
+.titleLogo {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--white);
+    text-shadow: 1px 3px 8px rgba(0, 0, 0, 0.94);
+}
+
+.menuBox {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menuItemSidebar {
+    width: 100%;
+    padding: 5px;
+    background-color: var(--gray-900);
+    border-radius: 8px;
+    border: 1px solid var(--gray-800);
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.menuItemSidebar:hover {
+    color: var(--white);
+    background-color: var(--gray-800);
+    border: 1px solid var(--gray-600);
+    cursor: pointer;
+    gap: 10px;
+}
+
+.activeMenu {
+    background-color: var(--blue-normal) !important;
+    border: 1px solid var(--blue-light) !important;
+    color: var(--white) !important;
+}
+
+.iconMenu {
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconMenu span {
+    font-size: 30px;
+}
+
+
+.botSidebar {
+    width: 100%;
+    padding: 20px 15px;
+    background-color: var(--gray-900);
+    border-top: 1px solid var(--gray-700);
+}
+
+.btnSesion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--red-normal);
+    background-color: var(--red-normal);
+    color: var(--white);
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.btnSesion:hover {
+    cursor: pointer;
+    background-color: var(--red-hover);
+}
+
+.btnSesion p {
+    font-size: 13px;
+    font-weight: 600;
+}
+
 
 /* css para el header */
 .headerMenu {
@@ -75,7 +234,8 @@ body {
     background-color: var(--gray-800);
     border: 1px solid var(--gray-700);
 }
-.btnMenuBox:active{
+
+.btnMenuBox:active {
     background-color: var(--gray-700);
 }
 
@@ -125,7 +285,8 @@ body {
     border: 1px solid var(--blue-normal);
     cursor: pointer;
 }
-.btnAgregarDocente:active{
+
+.btnAgregarDocente:active {
     background-color: var(--blue-hover);
 }
 
@@ -135,7 +296,7 @@ body {
 }
 
 /* css para contenedor pagina y table*/
-.headerTable{
+.headerTable {
     width: 100%;
     background-color: var(--gray-900);
     color: var(--gray-300);
@@ -145,32 +306,39 @@ body {
     font-size: 11px;
     font-weight: 700;
 }
-.headerItemBox{
+
+.headerItemBox {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 110px;
 }
-.headerItem{
+
+.headerItem {
     border-right: 1px solid var(--gray-600);
     padding-left: 10px;
 }
-.ctrlTable{
+
+.ctrlTable {
     border-right: none;
 }
-.itemTableBox{
+
+.itemTableBox {
     width: 100%;
     border-bottom: 1px solid var(--gray-300);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 110px;
     transition: all 0.2s ease;
 }
-.itemTableBox:hover{
+
+.itemTableBox:hover {
     background-color: var(--gray-100);
 }
-.itemTableBox:hover .btnTableBox{
+
+.itemTableBox:hover .btnTableBox {
     color: var(--gray-600);
 }
-.tableItem{
+
+.tableItem {
     border-right: 1px solid var(--gray-300);
     padding-left: 10px;
     font-size: 13px;
@@ -183,7 +351,8 @@ body {
     display: flex;
     align-items: center;
 }
-.btnTableBox{
+
+.btnTableBox {
     width: 100%;
     height: 25px;
     display: flex;
@@ -191,17 +360,20 @@ body {
     color: var(--gray-400);
 }
 
-.editBtn{
+.editBtn {
     transition: all 0.2s ease;
 }
-.deleteBtn{
+
+.deleteBtn {
     transition: all 0.2s ease;
 }
-.editBtn:hover{
+
+.editBtn:hover {
     cursor: pointer;
     color: var(--green-normal);
 }
-.deleteBtn:hover{
+
+.deleteBtn:hover {
     cursor: pointer;
     color: var(--red-normal);
 }
@@ -214,7 +386,8 @@ body {
     position: fixed;
     overflow: hidden;
     z-index: 100;
-    display: none; /*por defecto es none pero si se activa debe ser flex*/
+    display: none;
+    /*por defecto es none pero si se activa debe ser flex*/
     top: 0;
     justify-content: center;
     align-items: center;

@@ -12,9 +12,52 @@
 </head>
 
 <body>
+    <section id="contSider" class="contenedorSidebar">
+        <section class="sidebar">
+            <div class="innerSidebar">
+                <div class="topSidebar">
+                    <div class="logoBox">
+                        <div class="topLogo">
+                            <div onclick="toggleDiv()" class="closeSidebarBox"><span class="material-symbols-rounded">keyboard_double_arrow_left</span></div>
+                        </div>
+                        <div class="logoImg"></div>
+                        <p class="titleLogo">Cerp Litoral Salto</p>
+                    </div>
+                    <div class="menuBox">
+                        <div onclick="window.location.href='index.html'" class="menuItemSidebar">
+                            <div class="iconMenu"><span class="material-symbols-rounded">house</span></div>
+                            <p>INICIO</p>
+                        </div>
+                        <div onclick="window.location.href='docentes.html'" class="menuItemSidebar">
+                            <div class="iconMenu"><span class="material-symbols-rounded">person_add</span></div>
+                            <p>DOCENTES</p>
+                        </div>
+                        <div onclick="window.location.href='salones.html'" class="menuItemSidebar">
+                            <div class="iconMenu"><span class="material-symbols-rounded">add_home_work</span></div>
+                            <p>SALONES</p>
+                        </div>
+                        <div onclick="window.location.href='salonario.html'" class="menuItemSidebar activeMenu">
+                            <div class="iconMenu"><span class="material-symbols-rounded">calendar_month</span></div>
+                            <p>SALONARIO</p>
+                        </div>
+                        <div onclick="window.location.href=''" class="menuItemSidebar">
+                            <div onclick="window.location.href='documentacion.html'" class="iconMenu"><span class="material-symbols-rounded">menu_book</span></div>
+                            <p>DOCUMENTACION</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="botSidebar">
+                    <button class="btnSesion"><span class="material-symbols-rounded">logout</span>
+                        <p>CERRAR SESIÓN</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </section>
+
     <header class="headerMenu">
         <div class="leftMenu">
-            <button class="btnMenuBox"><span class="material-symbols-rounded">sort</span></button>
+            <button onclick="toggleDiv()" class="btnMenuBox"><span class="material-symbols-rounded">sort</span></button>
             <h1 class="titlePage">Administrar Salonario</h1>
         </div>
         <div class="centerMenu">
@@ -32,8 +75,18 @@
         </div>
     </header>
     <section class="contenedorPagina">
-        
+
     </section>
+    <script type="text/javascript">
+        function toggleDiv() {
+            var divElement = document.getElementById("contSider");
+            if (divElement.style.display === "block") {
+                divElement.style.display = "none";
+            } else {
+                divElement.style.display = "block";
+            }
+        }
+    </script>
 </body>
 
 </html>
