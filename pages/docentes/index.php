@@ -15,7 +15,7 @@
 <body>
     <header class="headerTop">
         <div class="leftHeader">
-            <div class="logo"><span class="material-symbols-rounded">sort</span></div>
+            <div onclick="openMenu()" class="logo"><span class="material-symbols-rounded">sort</span></div>
             <p class="titlePage"><?= $titlePage; ?></p>
         </div>
         <div class="centerHeader">
@@ -36,6 +36,8 @@
             <div id="loadModalForm"></div>
         </div>
     </section>
+
+    <?php include '../../components/menu.php'; ?>
 
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="js/docentes.js"></script>

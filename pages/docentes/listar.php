@@ -35,7 +35,7 @@ if ($resultado->num_rows > 0) {
             <div class="itemTableDocente">
                 <div class="btnTableBox">
                     <span onclick="openModalForm('editar.php?id=<?= $fila["id"]; ?>')" class="material-symbols-rounded editBtn">edit_document</span>
-                    <span onclick="window.location.href='eliminar.php?id=<?= $fila["id"]; ?>'" class="material-symbols-rounded deleteBtn">delete</span>
+                    <span onclick="openModalForm('eliminar.php?id=<?= $fila["id"]; ?>')" class="material-symbols-rounded deleteBtn">delete</span>
                 </div>
             </div>
         </div>
