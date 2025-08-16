@@ -1,53 +1,68 @@
-<?php if (isset($_GET["confirm"])) {
-    echo '<p class="pepe">Se guardo el registro!!!</p>';
-} else {
-?>
+<?php if (isset($_POST["nombre"])) { ?>
     <div class="headerModal">
-        <div class="titleHeaderModal"><span class="material-symbols-rounded">group_add</span><p>Agregar docente</p></div>
+        <div class="titleHeaderModal"><span class="material-symbols-rounded">group_add</span>
+            <p>Agregar docente</p>
+        </div>
+        <div onclick="closeModalForm()" class="btnCloseModal"><span class="material-symbols-rounded">close</span></div>
+    </div>
+    <div class="bodyModal">
+        <div class="msgOk">
+            <span class="material-symbols-rounded">check_circle</span>
+            <p>- El registro se guardo correctamente -</p>
+        </div>
+    </div>
+    <div class="footerModal">
+        <button class="btnCancelModal" onclick="closeModalForm()">CERRAR</button>
+        <button class="btnConfirmModal" onclick="openModalForm('agregar.php')">NUEVO</button>
+    </div>
+<?php } else { ?>
+
+    <div class="headerModal">
+        <div class="titleHeaderModal"><span class="material-symbols-rounded">group_add</span>
+            <p>Agregar docente</p>
+        </div>
         <div onclick="closeModalForm()" class="btnCloseModal"><span class="material-symbols-rounded">close</span></div>
     </div>
     <div class="bodyModal">
         <div class="labelBox">
             <p>Nombre:</p>
-            <span>Campo obligatorio!!!</span>
+            <span class="labelBoxError" id="errorNombre">Campo obligatorio!!!</span>
         </div>
-        <input type="text" class="inputForm" name="nombre" />
-        
+        <input type="text" class="inputForm" name="nombre" id="nombreDoc" />
+
         <div class="labelBox">
             <p>Apellido:</p>
-            <span>Campo obligatorio!!!</span>
+            <span class="labelBoxError" id="errorApellido">Campo obligatorio!!!</span>
         </div>
-        <input type="text" class="inputForm" name="apellido" />
-        
+        <input type="text" class="inputForm" name="apellido" id="apellidoDoc" />
+
         <div class="labelBox">
             <p>Documento de identidad:</p>
-            <span>Campo obligatorio!!!</span>
+            <span class="labelBoxError" id="errorDocumento">Campo obligatorio!!!</span>
         </div>
-        <input type="number" class="inputForm" name="documento" />
-        
+        <input type="number" class="inputForm" name="documento" id="documentoDoc" />
+
         <div class="labelBox">
             <p>Celular:</p>
-            <span>Campo obligatorio!!!</span>
+            <span class="labelBoxError" id="errorCelular">Campo obligatorio!!!</span>
         </div>
-        <input type="number" class="inputForm" name="celular" />
+        <input type="number" class="inputForm" name="celular" id="celularDoc" />
 
         <div class="labelBox">
             <p>Email:</p>
-            <span>Campo obligatorio!!!</span>
+            <span class="labelBoxError" id="errorEmail">Campo obligatorio!!!</span>
         </div>
-        <input type="text" class="inputForm" name="email" />
+        <input type="text" class="inputForm" name="email" id="emailDoc" />
 
         <div class="labelBox">
             <p>Observaciones:</p>
-            <span>Campo obligatorio!!!</span>
+            <span class="labelBoxError" id="errorObs">Campo obligatorio!!!</span>
         </div>
-        <textarea class="inputFormArea" name="observaciones"></textarea>
+        <textarea class="inputFormArea" name="observaciones" id="obsDoc"></textarea>
 
     </div>
     <div class="footerModal">
         <button class="btnCancelModal" onclick="closeModalForm()">CANCELAR</button>
-        <button class="btnConfirmModal" onclick="openModalForm('agregar.php?confirm=ok')">AGREGAR</button>
+        <button class="btnConfirmModal" onclick="agregarDocente()">AGREGAR</button>
     </div>
-<?php
-}
-?>
+<?php } ?>

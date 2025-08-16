@@ -109,7 +109,7 @@
 }
 
 .modalForm {
-    width: 500px;
+    width: 450px;
     padding: 10px;
     background-color: var(--gray-100);
     border-radius: 10px;
@@ -170,10 +170,11 @@
     font-size: 14px;
     color: var(--gray-800);
 }
-.labelBox span{
+.labelBoxError{
     font-size: 12px;
     color: var(--red-normal);
     font-weight: 600;
+    display: none;
 }
 .inputForm{
     width: 100%;
@@ -214,13 +215,13 @@ input::-webkit-inner-spin-button {
     width: 100%;
     display: flex;
     gap: 10px;
-    justify-content: right;
+    justify-content: center;
     padding-top: 10px;
 }
 .btnCancelModal{
+    width: 100%;
     background-color: var(--gray-200);
     color: var(--gray-800);
-    width: 150px;
     font-weight: 600;
     font-size: 14px;
     border: none;
@@ -234,9 +235,9 @@ input::-webkit-inner-spin-button {
 }
 
 .btnConfirmModal{
+    width: 100%;
     background-color: var(--green-normal);
     color: var(--white);
-    width: 150px;
     font-weight: 500;
     font-size: 14px;
     border: none;
@@ -247,4 +248,55 @@ input::-webkit-inner-spin-button {
 .btnConfirmModal:hover{
     background-color: var(--green-hover);
     cursor: pointer;
+}
+.btnDeleteModal{
+    width: 100%;
+    background-color: var(--red-normal);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+.btnDeleteModal:hover{
+    background-color: var(--red-hover);
+    cursor: pointer;
+}
+.msgOk{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 10px;
+}
+.msgOk span{
+    font-size: 48px;
+    color: var(--green-normal);
+}
+.msgOk p{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--gray-600);
+}
+
+.msgDelete{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+.msgDelete p{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--gray-600);
 }
