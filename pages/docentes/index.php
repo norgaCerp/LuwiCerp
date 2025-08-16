@@ -33,36 +33,12 @@
 
     <section class="modalFormBox" id="modalFormBox">
         <div class="modalForm" id="modalForm">
-            <div onclick="closeModalForm()" class="btnCloseModal"><span class="material-symbols-rounded">close</span></div>
             <div id="loadModalForm"></div>
         </div>
     </section>
 
     <script src="../../js/jquery-3.7.1.min.js"></script>
-    <script>
-        function buscar(search) {
-            $('#cargaDatosDocentes').load('listar.php?search=' + search);
-        }
-        $("#search").on("keyup", function() {
-            buscar($('#search').val());
-        });
-
-        function openModalForm(url){
-            $("#loadModalForm").load(url);
-            $("#modalFormBox").fadeIn();
-            $('#modalForm').css('transform', 'scale(1)');
-        }
-        function closeModalForm(){
-            $('#modalForm').css('transform', 'scale(0)');
-            $("#loadModalForm").html('');
-            $("#modalFormBox").fadeOut();
-        }
-
-
-        $(document).ready(function() {
-            buscar('');
-        });
-    </script>
+    <script src="js/docentes.js"></script>
 </body>
 
 </html>
