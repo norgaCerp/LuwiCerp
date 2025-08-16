@@ -9,41 +9,41 @@ $("#search").on("keyup", function () {
 
 // funcion para agregar nuevos docentes, tambien hace las comprobaciones de datos
 function agregarDocente() {
-    let nombre=$('#nombreDoc').val();
-    let apellido=$('#apellidoDoc').val();
-    let documento=$('#documentoDoc').val();
-    let celular=$('#celularDoc').val();
-    let email=$('#emailDoc').val();
-    let obs=$('#obsDoc').val();
-    if (nombre==='' || apellido==='' || documento==='' || celular==='' || email==='' || obs==='') {
-        if(nombre===''){
+    let nombre = $('#nombreDoc').val();
+    let apellido = $('#apellidoDoc').val();
+    let documento = $('#documentoDoc').val();
+    let celular = $('#celularDoc').val();
+    let email = $('#emailDoc').val();
+    let obs = $('#obsDoc').val();
+    if (nombre === '' || apellido === '' || documento === '' || celular === '' || email === '' || obs === '') {
+        if (nombre === '') {
             $('#errorNombre').show();
-        }else{
+        } else {
             $('#errorNombre').hide();
         }
-        if(apellido===''){
+        if (apellido === '') {
             $('#errorApellido').show();
-        }else{
+        } else {
             $('#errorApellido').hide();
         }
-        if(documento===''){
+        if (documento === '') {
             $('#errorDocumento').show();
-        }else{
+        } else {
             $('#errorDocumento').hide();
         }
-        if(celular===''){
+        if (celular === '') {
             $('#errorCelular').show();
-        }else{
+        } else {
             $('#errorCelular').hide();
         }
-        if(email===''){
+        if (email === '') {
             $('#errorEmail').show();
-        }else{
+        } else {
             $('#errorEmail').hide();
         }
-        if(obs===''){
+        if (obs === '') {
             $('#errorObs').show();
-        }else{
+        } else {
             $('#errorObs').hide();
         }
     } else {
@@ -70,14 +70,14 @@ function agregarDocente() {
 function openModalForm(url) {
     $('body').css('overflow', 'hidden');
     $("#loadModalForm").load(url);
-    $("#modalFormBox").fadeIn();
+    $("#modalFormBox").fadeIn("fast");
     $('#modalForm').css('marginTop', '0');
 }
 function closeModalForm() {
     $('body').css('overflow', 'auto');
     $('#modalForm').css('marginTop', '-100px');
     $("#loadModalForm").html('');
-    $("#modalFormBox").fadeOut();
+    $("#modalFormBox").fadeOut("fast");
     buscar('');
 }
 
