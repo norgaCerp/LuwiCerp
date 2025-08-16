@@ -16,6 +16,7 @@ function closeModalForm() {
     $('#modalForm').css('marginTop', '-100px');
     $("#loadModalForm").html('');
     $("#modalFormBox").fadeOut();
+    buscar('');
 }
 
 
