@@ -99,6 +99,7 @@
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
     position: fixed;
     top: 0;
     z-index: 100;
@@ -150,13 +151,100 @@
 }
 .bodyModal{
     width: 100%;
-    height: 300px;
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: 10px 15px 5px 15px;
+}
+.labelBox{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: flex;
+    align-items: end;
+}
+.labelBox p{
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--gray-800);
+}
+.labelBox span{
+    font-size: 12px;
+    color: var(--red-normal);
+    font-weight: 600;
+}
+.inputForm{
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--gray-200);
+    background-color: var(--gray-50);
+    border-radius: 6px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.inputForm:focus {
+    border: 2px solid var(--blue-hover);
+    border-color: var(--blue-normal);
+    outline: none;
+}
+.inputFormArea{
+    width: 100%;
+    padding: 10px;
+    height: 100px;
+    border: 1px solid var(--gray-200);
+    background-color: var(--gray-50);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    resize: none;
+}
+.inputFormArea:focus {
+    border: 2px solid var(--blue-hover);
+    border-color: var(--blue-normal);
+    outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .footerModal{
     width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: right;
     padding-top: 10px;
+}
+.btnCancelModal{
+    background-color: var(--gray-200);
+    color: var(--gray-800);
+    width: 150px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+.btnCancelModal:hover{
+    background-color: var(--gray-300);
+    cursor: pointer;
+}
+
+.btnConfirmModal{
+    background-color: var(--green-normal);
+    color: var(--white);
+    width: 150px;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+.btnConfirmModal:hover{
+    background-color: var(--green-hover);
+    cursor: pointer;
 }
