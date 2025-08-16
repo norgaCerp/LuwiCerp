@@ -6,11 +6,13 @@ $("#search").on("keyup", function () {
 });
 
 function openModalForm(url) {
+    $('body').css('overflow', 'hidden');
     $("#loadModalForm").load(url);
     $("#modalFormBox").fadeIn();
     $('#modalForm').css('marginTop', '0');
 }
 function closeModalForm() {
+    $('body').css('overflow', 'auto');
     $('#modalForm').css('marginTop', '-100px');
     $("#loadModalForm").html('');
     $("#modalFormBox").fadeOut();
@@ -19,4 +21,5 @@ function closeModalForm() {
 
 $(document).ready(function () {
     buscar('');
+    openModalForm('agregar.php');
 });
