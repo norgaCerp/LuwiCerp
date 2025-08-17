@@ -31,7 +31,7 @@ if ($resultado->num_rows > 0) {
             <div class="itemTableDocente"><?php echo $fila["apellido"]; ?></div>
             <div class="itemTableDocente"><?php echo $fila["email"]; ?></div>
             <div class="itemTableDocente">0<?php echo $fila["celular"]; ?></div>
-            <div class="itemTableDocente">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero, dolorem voluptate quos illum ducimus consequuntur aut voluptatum commodi. Deleniti distinctio dignissimos quaerat quo sit ducimus, accusantium quod voluptatem tenetur earum.</div>
+            <div class="itemTableDocente"><?php echo $fila["observaciones"]; ?></div>
             <div class="itemTableDocente">
                 <div class="btnTableBox">
                     <span onclick="openModalForm('editar.php?id=<?= $fila["id"]; ?>')" class="material-symbols-rounded editBtn">edit_document</span>
@@ -43,7 +43,13 @@ if ($resultado->num_rows > 0) {
 <?php
     }
 } else {
-    echo "No hay registros.";
+?>
+    <div class="emptyBox">
+        <span class="material-symbols-rounded">news</span>
+        <p>- No hay registros -</p>
+    </div>
+
+<?php
 }
 // Cerrar conexión
 $conexion->close();

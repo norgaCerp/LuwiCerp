@@ -30,7 +30,7 @@
     <section class="cargaDatosDocentes" id="cargaDatosDocentes">
 
     </section>
-
+    <?php include'../../components/footer.php'; ?>
     <section class="modalFormBox" id="modalFormBox">
         <div class="modalForm" id="modalForm">
             <div id="loadModalForm"></div>
