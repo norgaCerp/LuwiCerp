@@ -85,5 +85,4 @@ function closeModalForm() {
 // funcion ready para ejecutar funciones al cargar el body
 $(document).ready(function () {
     buscar('');
-    openMenu();
 });
