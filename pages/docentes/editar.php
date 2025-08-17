@@ -5,7 +5,7 @@
 ?>
     <div class="headerModal">
         <div class="titleHeaderModal"><span class="material-symbols-rounded">group_add</span>
-            <p>Agregar docente</p>
+            <p>Editar docente</p>
         </div>
         <div onclick="closeModalForm()" class="btnCloseModal"><span class="material-symbols-rounded">close</span></div>
     </div>
@@ -13,7 +13,7 @@
         <div class="bodyModal">
             <div class="msgOk">
                 <span class="material-symbols-rounded">check_circle</span>
-                <p>- El registro se guardo correctamente -</p>
+                <p>- El registro se edito correctamente -</p>
             </div>
         </div>
         <div class="footerModal">
@@ -40,7 +40,7 @@
 
     <div class="headerModal">
         <div class="titleHeaderModal"><span class="material-symbols-rounded">group_add</span>
-            <p>Agregar docente</p>
+            <p>Editar docente</p>
         </div>
         <div onclick="closeModalForm()" class="btnCloseModal"><span class="material-symbols-rounded">close</span></div>
     </div>
