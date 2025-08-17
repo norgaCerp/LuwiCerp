@@ -1,21 +1,40 @@
-<?php if (isset($_POST["nombre"])) { ?>
+<?php include '../../config/database.php'; ?>
+<?php if (isset($_POST["nombre"])) {
+    $sql = "INSERT INTO docentes (documento, nombre, apellido, email, celular, observaciones)
+    VALUES ('" . $_POST["documento"] . "', '" . $_POST["nombre"] . "', '" . $_POST["apellido"] . "', '" . $_POST["email"] . "', '" . $_POST["celular"] . "', '" . $_POST["obs"] . "')";
+?>
     <div class="headerModal">
         <div class="titleHeaderModal"><span class="material-symbols-rounded">group_add</span>
             <p>Agregar docente</p>
         </div>
         <div onclick="closeModalForm()" class="btnCloseModal"><span class="material-symbols-rounded">close</span></div>
     </div>
-    <div class="bodyModal">
-        <div class="msgOk">
-            <span class="material-symbols-rounded">check_circle</span>
-            <p>- El registro se guardo correctamente -</p>
+    <?php if ($conexion->query($sql) === TRUE) { ?>
+        <div class="bodyModal">
+            <div class="msgOk">
+                <span class="material-symbols-rounded">check_circle</span>
+                <p>- El registro se guardo correctamente -</p>
+            </div>
         </div>
-    </div>
-    <div class="footerModal">
-        <button class="btnCancelModal" onclick="closeModalForm()">CERRAR</button>
-        <button class="btnConfirmModal" onclick="openModalForm('agregar.php')">NUEVO</button>
-    </div>
-<?php } else { ?>
+        <div class="footerModal">
+            <button class="btnCancelModal" onclick="closeModalForm()">CERRAR</button>
+            <button class="btnConfirmModal" onclick="openModalForm('agregar.php')">NUEVO</button>
+        </div>
+    <?php } else { ?>
+        <div class="bodyModal">
+            <div class="msgOk">
+                <span class="material-symbols-rounded">check_circle</span>
+                <p>- Hubo un error -</p>
+            </div>
+        </div>
+        <div class="footerModal">
+            <button class="btnCancelModal" onclick="closeModalForm()">CERRAR</button>
+            <button class="btnConfirmModal" onclick="openModalForm('agregar.php')">NUEVO</button>
+        </div>
+    <?php
+    }
+} else {
+    ?>
 
     <div class="headerModal">
         <div class="titleHeaderModal"><span class="material-symbols-rounded">group_add</span>
@@ -63,6 +82,6 @@
     </div>
     <div class="footerModal">
         <button class="btnCancelModal" onclick="closeModalForm()">CANCELAR</button>
-        <button class="btnConfirmModal" onclick="agregarDocente()">AGREGAR</button>
+        <button class="btnConfirmModal" onclick="agregarDocente('agregar.php')">AGREGAR</button>
     </div>
 <?php } ?>

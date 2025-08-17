@@ -300,3 +300,20 @@ input::-webkit-inner-spin-button {
     font-size: 14px;
     color: var(--gray-600);
 }
+
+.emptyBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 100px;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: var(--gray-300);
+    font-weight: 700;
+}
+.emptyBox span{
+    font-size: 88px;
+}

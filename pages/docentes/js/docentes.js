@@ -8,7 +8,7 @@ $("#search").on("keyup", function () {
 });
 
 // funcion para agregar nuevos docentes, tambien hace las comprobaciones de datos
-function agregarDocente() {
+function agregarDocente(directiva) {
     let nombre = $('#nombreDoc').val();
     let apellido = $('#apellidoDoc').val();
     let documento = $('#documentoDoc').val();
@@ -47,7 +47,7 @@ function agregarDocente() {
             $('#errorObs').hide();
         }
     } else {
-        $.post("agregar.php",
+        $.post(directiva,
             {
                 nombre: nombre,
                 apellido: apellido,
@@ -72,6 +72,7 @@ function openModalForm(url) {
     $("#loadModalForm").load(url);
     $("#modalFormBox").fadeIn("fast");
     $('#modalForm').css('marginTop', '0');
+    buscar('');
 }
 function closeModalForm() {
     $('body').css('overflow', 'auto');
