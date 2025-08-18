@@ -1,0 +1,89 @@
+.salonarioBox{
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    background-color: var(--white);
+}
+
+.horariosBox{
+    width: 100%;
+    height: 100%;
+    background-color: var(--gray-800);
+    border-right: 1px solid var(--gray-600);
+    position: sticky;
+    top: 60px;
+    left: 0;
+    z-index: 150;
+}
+.datosBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.itemSalon{
+    width: 190px;
+    min-width: 150px;
+    background-color: var(--gray-100);
+    border-right: 1px solid var(--gray-300);
+}
+
+.itemHora{
+    width: 100%;
+    height: 100px;
+    background-color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-600);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+.princ{
+    height: 40px;
+    position: sticky;
+    color: var(--white);
+    background-color: var(--blue-normal);
+    border: 1px solid var(--blue-light);
+    top: 0;
+    gap: 5px;
+    font-size: 13px;
+}
+.princ span{
+    font-size: 17px;
+}
+
+
+.itemSalonData{
+    width: 100%;
+    height: 100px;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gray-300);
+    color: var(--gray-600);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.itemSalonData:hover{
+    background-color: var(--gray-200);
+}
+.titleData{
+    height: 40px;
+    color: var(--white);
+    background-color: var(--gray-800);
+    border: 1px solid var(--gray-700);
+    gap: 5px;
+    font-size: 13px;
+    z-index: 130;
+    position: sticky;
+    top: 0;
+}

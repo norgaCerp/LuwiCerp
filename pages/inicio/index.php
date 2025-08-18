@@ -15,8 +15,21 @@ $titlePage = 'Inicio';
 </head>
 
 <body>
-    inicio pages
-    <a href="http://localhost/luwiCerp/logout.php">cerrar sesion</a>
+    <header class="headerTop">
+        <div class="leftHeader">
+            <div onclick="openMenu()" class="logo"><span class="material-symbols-rounded">sort</span></div>
+            <p class="titlePage"><?= $titlePage; ?></p>
+        </div>
+        <div class="centerHeader">
+            
+        </div>
+        <div class="rightHeader">
+            
+        </div>
+    </header>
+    
+    <?php include '../../components/menu.php'; ?>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
 </body>
 
 </html>
