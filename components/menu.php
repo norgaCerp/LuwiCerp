@@ -52,7 +52,7 @@ if ($titlePage === 'Inicio') {
             </div>
         </div>
         <div class="bottomMenu">
-            <button class="btnSesion"><span class="material-symbols-rounded">chip_extraction</span>
+            <button onclick="window.location.href='../../logout.php'" class="btnSesion"><span class="material-symbols-rounded">chip_extraction</span>
                 <p>CERRAR SESION</p>
             </button>
         </div>

@@ -1,9 +1,9 @@
 <?php
 session_start();
 include 'config/database.php';
-
+$errorMsg = false;
 if (isset($_POST["user"]) and isset($_POST["pwd"])) {
-    
+
     $usuario = $_POST['user'] ?? '';
     $password = md5($_POST['pwd']) ?? '';
 
@@ -14,7 +14,7 @@ if (isset($_POST["user"]) and isset($_POST["pwd"])) {
         $_SESSION['usuario'] = $usuario;
         echo "ok";
     } else {
-        echo "error";
+        $errorMsg = true;
     }
 }
 
@@ -38,6 +38,12 @@ if (isset($_SESSION['usuario'])) {
     <body>
         <form action="index.php" name="loginForm" id="loginForm" method="post">
             <div class="loginBox">
+                <?php
+                if ($errorMsg === true) { ?>
+                    <div class="msgErrorLogin">
+                        <p>¡El usuario o la contraseña son incorrectas!</p>
+                    </div>
+                <?php } ?>
                 <div class="topLogin">
                     <img src="img/logo.png" class="imgLogin" />
                     <p>App Salones</p>
