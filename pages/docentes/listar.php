@@ -1,3 +1,4 @@
+<?php include '../../config/comp.php';?>
 <?php include '../../config/database.php'; ?>
 <div class="headerTableDocentes">
     <div class="titleHeaderTableDocentes">DOCUMENTO</div>

@@ -1,3 +1,4 @@
+<?php include '../../config/comp.php';?>
 <?php include '../../config/database.php'; ?>
 <?php if (isset($_POST["nombre"])) {
     $sql = "INSERT INTO docentes (documento, nombre, apellido, email, celular, observaciones)
