@@ -33,6 +33,16 @@ body {
     }
 }
 
+.msgErrorLogin{
+    width: 100%;
+    padding: 15px;
+    background-color: var(--red-light);
+    border: 1px solid var(--red-normal);
+    border-radius: 10px;
+    color: var(--red-normal);
+    text-align: center;
+    font-weight: 600;
+}
 .topLogin {
     display: flex;
     flex-direction: column;
