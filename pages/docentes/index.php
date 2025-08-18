@@ -1,5 +1,5 @@
 <?php include '../../config/comp.php';?>
-<?php $titlePage = 'Docentes'; ?>
+<?php $titlePage = 'Inicio'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../css/estilos.css">
     <link rel="stylesheet" href="css/docentes.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
-    <title>App Salones - Docentes</title>
+    <title>App Salones - Inicio</title>
 </head>
 
 <body>
@@ -27,6 +27,7 @@
             <button onclick="openModalForm('agregar.php')" class="btnAgregar"><span class="material-symbols-rounded">group_add</span>NUEVO DOCENTE</button>
         </div>
     </header>
+
     <!-- seccion donde se listan los datos del docente -->
     <section class="cargaDatosDocentes" id="cargaDatosDocentes">
 
