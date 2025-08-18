@@ -1,3 +1,4 @@
+<?php include '../../config/comp.php';?>
 <?php include '../../config/database.php'; ?>
 <?php if (isset($_POST["nombre"])) {
     $sql = "UPDATE docentes SET documento='" . $_POST["documento"] . "', nombre='" . $_POST["nombre"] . "', apellido='" . $_POST["apellido"] . "', email='" . $_POST["email"] . "', celular='" . $_POST["celular"] . "', observaciones='" . $_POST["obs"] . "' WHERE id='" . $_GET["id"] . "'";

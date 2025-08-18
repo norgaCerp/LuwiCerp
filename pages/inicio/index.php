@@ -1,6 +1,10 @@
-<?php $titlePage='Inicio'; ?>
+<?php
+include '../../config/comp.php';
+$titlePage = 'Inicio';
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <title>App Salones - Inicio</title>
 </head>
+
 <body>
-    <?php include'../../components/header.php'; ?>
+    inicio pages
+    <a href="http://localhost/luwiCerp/logout.php">cerrar sesion</a>
 </body>
+
 </html>

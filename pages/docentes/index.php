@@ -1,3 +1,4 @@
+<?php include '../../config/comp.php';?>
 <?php $titlePage = 'Docentes'; ?>
 <!DOCTYPE html>
 <html lang="es">

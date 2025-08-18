@@ -1,3 +1,4 @@
+<?php include '../../config/comp.php';?>
 <?php include '../../config/database.php'; ?>
 <?php if (isset($_GET["id"]) AND isset($_GET["confirm"])) { 
     $sql = "DELETE FROM docentes WHERE id=".$_GET["id"]."";
