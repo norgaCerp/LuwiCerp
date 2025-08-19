@@ -19,7 +19,7 @@ if (isset($_POST["user"]) and isset($_POST["pwd"])) {
 }
 
 if (isset($_SESSION['usuario'])) {
-    header("Location: http://localhost/luwiCerp/pages/inicio/");
+    header("Location: http://localhost/luwiCerp/pages/salonario/");
     exit; // Important!
 } else {
 ?>

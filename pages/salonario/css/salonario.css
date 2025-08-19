@@ -1,3 +1,66 @@
+.centerHeader{
+    width: 700px;
+    padding: 3px;
+    gap: 5px;
+}
+.dayActive{
+    background-color: var(--blue-normal) !important;
+    color: var(--white) !important;
+    border: 1px solid var(--blue-light) !important;
+}
+.dayMenu{
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+.dayMenu:hover{
+    cursor: pointer;
+    background-color: var(--gray-700);
+    border: 1px solid var(--gray-600);
+}
+
+/* right header css */
+.semestreTabBox{
+    background-color: var(--gray-800);
+    border: 1px solid var(--gray-700);
+    color: var(--gray-300);
+    padding: 3px;
+    gap: 5px;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.semestreTab{
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+}
+.semestreTabActive{
+    background-color: var(--green-normal) !important;
+    border: 1px solid var(--green-light) !important;
+    color: var(--white) !important;
+}
+.semestreTab:hover{
+    cursor: pointer;
+    background-color: var(--gray-700);
+    border: 1px solid var(--gray-600);
+}
+
 .salonarioBox{
     width: 100%;
     height: calc(100vh - 60px);
@@ -5,6 +68,7 @@
     display: grid;
     grid-template-columns: 130px 1fr;
     background-color: var(--white);
+    color: var(--white);
 }
 
 .horariosBox{
@@ -21,7 +85,7 @@
 
 .itemHora{
     width: 100%;
-    height: 100px;
+    height: 150px;
     background-color: var(--gray-700);
     border-bottom: 1px solid var(--gray-600);
     color: var(--white);
@@ -53,14 +117,14 @@
     display: flex;
 }
 .itemSalon{
-    width: 220px;
-    min-width: 220px;
+    width: 260px;
+    min-width: 260px;
     background-color: var(--gray-100);
     border-right: 1px solid var(--gray-300);
 }
 .itemSalonData{
     width: 100%;
-    height: 100px;
+    height: 150px;
     background-color: var(--white);
     border-bottom: 1px solid var(--gray-300);
     color: var(--gray-600);
@@ -68,22 +132,110 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    padding: 10px;
     text-align: center;
     font-weight: 600;
-    transition: all 0.2s ease;
-}
-.itemSalonData:hover{
-    background-color: var(--gray-200);
+    
 }
 .titleData{
     height: 40px;
     color: var(--white);
-    background-color: var(--gray-800);
-    border: 1px solid var(--gray-700);
+    background-color: var(--gray-800) !important;
+    border: 1px solid var(--gray-700) !important;
+    text-transform: uppercase;
     gap: 5px;
     font-size: 13px;
     z-index: 130;
     position: sticky;
     top: 0;
+}
+
+.selectItembody{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between;
+    background-color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.selectItembody:hover{
+    background-color: var(--gray-100);
+}
+.selectItembody span{
+    color: var(--gray-200);
+    font-size: 38px;
+    transition: all 0.2s ease;
+}
+.selectItembody:hover span{
+    color: var(--gray-600);
+    transform: scale(1.1);
+}
+
+.titleCarrera{
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    text-wrap: nowrap;
+    background-color: #fce066;
+    border-radius: 5px;
+}
+.titleAsignatura{
+    width: 100%;
+    font-size: 15px;
+    padding: 5px 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+.titleDocente{
+    width: 100%;
+    padding: 5px 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.titleDate{
+    width: 100%;
+    font-size: 12px;
+    padding: 5px 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+.fullBox{
+    padding: 10px;
+}
+.emptyBox{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+.emptyBox span{
+    font-size: 32px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: var(--gray-100);
+    color: var(--gray-200);
+}
+.emptyBox:hover{
+    background-color: #ecffc9;
+    border: 1px solid #c5f173;
+}
+.emptyBox:hover span{
+    background-color: #c5f173;
+    color: var(--white);
 }

@@ -1,5 +1,5 @@
 <?php include '../../config/comp.php';?>
-<?php $titlePage = 'Inicio'; ?>
+<?php $titlePage = 'Docentes'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
