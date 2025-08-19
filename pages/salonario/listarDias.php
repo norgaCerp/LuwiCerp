@@ -78,33 +78,45 @@
                 <div class="itemSalon">
                     <div class="itemSalonData titleData"><?php echo $fila["nombre"]; ?></div>
 
-                    <?php for ($i = 1; $i <= 20; $i++) { ?>
-                        <!-- elementos cuando esta ocupado el salon -->
-                        <!-- <div class="itemSalonData">
-                            <div class="selectItembody" onclick="alert('<?= $fila["nombre"] . '- posicion ' . $i; ?>')">
-                                <div class="fullBox">
-                                    <div class="titleCarrera">Informática</div>
-                                    <div class="titleAsignatura">Base de datos</div>
-                                    <div class="titleDate">Tercer año</div>
-                                    <div class="titleDocente">Guillermo Uscudum</div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="itemSalonData">
-                            <div class="selectItembody" onclick="alert('<?= $fila["nombre"] . '- posicion ' . $i; ?>')">
-                                <div class="emptyBox">
-                                    <span class="material-symbols-rounded">add</span>
-                                </div>
-                            </div>
-                        </div>
+                    <?php for ($i = 1; $i <= 20; $i++) {
+                        $sqlEdit = "SELECT * FROM salonario WHERE idSalon='" . $fila["id"] . "' AND orden='" . $i . "' AND semestre='". $_GET["semestre"] ."' AND dia='". $_GET["dia"] ."'";
 
-                    <?php } ?>
+                        $resultadoEdit = $conexion->query($sqlEdit);
+
+                        if ($resultadoEdit && $resultadoEdit->num_rows > 0) {
+                            $fila1 = $resultadoEdit->fetch_assoc();
+                    ?>
+                            <!-- elementos cuando esta ocupado el salon -->
+                            <div class="itemSalonData">
+                                <div class="selectItembody" onclick="alert('<?= $fila["nombre"] . '- posicion ' . $i; ?>')">
+                                    <div class="fullBox">
+                                        <div class="titleCarrera"><?= $fila1["dia"]; ?></div>
+                                        <div class="titleAsignatura">Base de datos</div>
+                                        <div class="titleDate">Tercer año</div>
+                                        <div class="titleDocente">Guillermo Uscudum</div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        } else {
+                        ?>
+                            <div class="itemSalonData">
+                                <div class="selectItembody" onclick="openModalForm('agregarReserva.php?salon=<?= $fila["id"]; ?>&&pos=<?= $i; ?>&&dia=<?= $_GET["dia"]; ?>&&semestre=<?= $_GET["semestre"]; ?>')">
+                                    <div class="emptyBox">
+                                        <span class="material-symbols-rounded">add</span>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    } ?>
 
                 </div>
         <?php }
         } ?>
     </div>
 </section>
+
 <?php
 // Cerrar conexión
 $conexion->close();

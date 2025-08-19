@@ -22,22 +22,39 @@ $titlePage = 'Salonario';
             <p class="titlePage"><?= $titlePage; ?></p>
         </div>
         <div class="centerHeader">
-            <div onclick="cargarSalonario('lunes')" class="dayMenu" id="lunes"><p>LUNES</p></div>
-            <div onclick="cargarSalonario('martes')" class="dayMenu" id="martes"><p>MARTES</p></div>
-            <div onclick="cargarSalonario('miercoles')" class="dayMenu" id="miercoles"><p>MIERCOLES</p></div>
-            <div onclick="cargarSalonario('jueves')" class="dayMenu" id="jueves"><p>JUEVES</p></div>
-            <div onclick="cargarSalonario('viernes')" class="dayMenu" id="viernes"><p>VIERNES</p></div>
-            <div onclick="cargarSalonario('sabado')" class="dayMenu" id="sabado"><p>SABADO</p></div>
+            <div onclick="cargarSalonario('lunes', $('#valSemestre').val())" class="dayMenu" id="lunes">
+                <p>LUNES</p>
+            </div>
+            <div onclick="cargarSalonario('martes', $('#valSemestre').val())" class="dayMenu" id="martes">
+                <p>MARTES</p>
+            </div>
+            <div onclick="cargarSalonario('miercoles', $('#valSemestre').val())" class="dayMenu" id="miercoles">
+                <p>MIERCOLES</p>
+            </div>
+            <div onclick="cargarSalonario('jueves', $('#valSemestre').val())" class="dayMenu" id="jueves">
+                <p>JUEVES</p>
+            </div>
+            <div onclick="cargarSalonario('viernes', $('#valSemestre').val())" class="dayMenu" id="viernes">
+                <p>VIERNES</p>
+            </div>
+            <div onclick="cargarSalonario('sabado', $('#valSemestre').val())" class="dayMenu" id="sabado">
+                <p>SABADO</p>
+            </div>
+            <input type="text" id="inputDay" name="inputDay" />
         </div>
         <div class="rightHeader">
             <div class="semestreTabBox">
-                <div id="semestretab1" class="semestreTab semestreTabActive">1 semestre</div>
-                <div id="semestretab2" class="semestreTab">2 semestre</div>
+                <div onclick="cargarSalonario($('#inputDay').val(),1)"" id="s1" class="semestreTab">1 semestre</div>
+                <div onclick="cargarSalonario($('#inputDay').val(),2)" id="s2" class="semestreTab">2 semestre</div>
+                <input type="text" id="valSemestre" name="valSemestre" />
             </div>
         </div>
     </header>
     <section id="cargarDiasBox">
 
+    </section>
+    <section class="modalDateBox" id="modalDateBox">
+        <div class="modalDate" id="modalDate"></div>
     </section>
     <?php include '../../components/menu.php'; ?>
     <script src="../../js/jquery-3.7.1.min.js"></script>
