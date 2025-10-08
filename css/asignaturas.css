@@ -225,17 +225,16 @@
 .buscarDoc{
     width: 100%;
     display: flex;
+    flex-direction: column;
     overflow: hidden;
     gap: 10px;
-    align-items: center;
 }
 .btnBuscarDoc{
-    width: 90px;
-    height: 90px;
+    width: 100%;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     text-align: center;
     gap: 5px;
     font-size: 12px;
@@ -251,6 +250,11 @@
     background-color: var(--green-normal);
     color: var(--white);
     border: 1px solid var(--green-hover);
+}
+.pDocente{
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--gray-800);
 }
 .listaDoc{
     width: 100%;
