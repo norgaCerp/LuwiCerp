@@ -34,28 +34,10 @@
                             <p>Profesor:</p>
                             <span id="profError">Campo obligatorio!</span>
                         </div>
-                        <div class="select-wrapper">
-                            <select id="selectProf" name="profesor">
-                                <option value="">Seleccione una opción</option>
-                                <?php
-                                $sql = "SELECT * FROM docentes";
-                                $resultado = $conexion->query($sql);
-                                if ($resultado->num_rows > 0) {
-                                    // Usar while para recorrer los resultados
-                                    while ($fila = $resultado->fetch_assoc()) {
-                                    ?>
-
-                                        <option value="<?php echo $fila["id"]; ?>"><?php echo $fila["nombre"]; ?> <?php echo $fila["apellido"]; ?></option>
-                            
-                                    <?php
-                                    }
-                                } else {
-                                    ?>
-                                    <option value="">No hay registro</option>
-                                <?php
-                                }
-                                ?> 
-                            </select>
+                        <div class="buscarDoc">
+                            <div onclick="openModalBuscarDocente('500px', 'agregar')" class="btnBuscarDoc"><span class="material-symbols-rounded">group_add</span><p>AGREGAR DOCENTE</p></div>
+                            <p id="pDocente"><- Seleccione un docente</p>
+                            <input style="display: none;" type="text" name="profesor" id="idDocente"> 
                         </div>
                     </div>
                     <div class="cuerpo2">

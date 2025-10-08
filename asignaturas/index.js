@@ -54,6 +54,7 @@ function cerrarModalAgregar() {
     document.getElementById('nombreError').style.display = 'none';
     document.getElementById('anioError').style.display = 'none';
     document.getElementById('profError').style.display = 'none';
+    document.getElementById('pDocente').innerText = '<- Seleccione un docente';
 }
 
 // funcion para validar campos
@@ -65,7 +66,7 @@ document.getElementById("agregarForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que se recargue la página
     var nom = document.getElementById('nombreForm').value;
     var anio = document.getElementById('selectAnio').value;
-    var prof = document.getElementById('selectProf').value;
+    var prof = document.getElementById('idDocente').value;
 
     if (nom == '' || anio == '' || prof == '') {
         validarCampo(nom, 'nombreError');
@@ -97,13 +98,14 @@ document.getElementById("agregarForm").addEventListener("submit", function (e) {
 });
 
 //funcion para modal editar asignatura
-function abrirModalEditar(w, id, nombre, idProf, anio, carreraId) {
+function abrirModalEditar(w, id, nombre, idProf, nomProf, anio, carreraId) {
     var modal = document.getElementById('modalEditarAsignatura');
     document.getElementById('contenedorEditarAsignatura').style.display = "flex";
     document.getElementById('idF').value = id;
     document.getElementById('nombreF').value = nombre;
     document.getElementById('selectAnioF').value = anio;
-    document.getElementById('selectProfF').value = idProf;
+    document.getElementById('accion').value='editar';
+    docenteSeleccionado(idProf, nomProf);
 
     let ids = carreraId.split(",");
     document.querySelectorAll("input[type='checkbox']").forEach(chk => {
@@ -158,7 +160,7 @@ document.getElementById("editarForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que se recargue la página
     var nom = document.getElementById('nombreF').value;
     var anio = document.getElementById('selectAnioF').value;
-    var prof = document.getElementById('selectProfF').value;
+    var prof = document.getElementById('idDocenteF').value;
 
     if (nom == '' || anio == '' || prof == '') {
         validarCampo(nom, 'nombreEr');
@@ -251,6 +253,77 @@ function cerrarModalEliminar() {
     }, 100);
 }
 
+const inputDocente = document.getElementById("inputBuscarDoc");
+const docentes = document.querySelectorAll(".btnDoc");
+
+function openModalBuscarDocente(w, accion) {
+    document.getElementById('accion').value = accion;
+    var modal = document.getElementById('modalBuscarProf');
+    document.getElementById('contenedorBuscarProf').style.display = "flex";
+    modal.style.width = w;
+    modal.animate([{
+        transform: 'scale(0.3)',
+        opacity: 0
+    }, {
+        transform: 'scale(1)',
+        opacity: 1
+    }], {
+        duration: 100,
+        easing: 'ease-in-out',
+        fill: 'forwards'
+    });
+
+}
+
+function closeModalBuscarDocente() {
+    var modal = document.getElementById('modalBuscarProf');
+    modal.animate([{
+        transform: 'scale(1)',
+        opacity: 1
+    }, {
+        transform: 'scale(0.3)',
+        opacity: 0
+    }], {
+        duration: 100,
+        easing: 'ease-in-out',
+        fill: 'forwards'
+    });
+    setTimeout(() => {
+        document.getElementById('contenedorBuscarProf').style.display = "none";
+    }, 100);
+    document.getElementById("inputBuscarDoc").value = '';
+    docentes.forEach(doc => {
+        doc.style.display = "block";
+    });
+}
+function docenteSeleccionado(id, nombre) {
+    if (document.getElementById('accion').value == 'agregar') {
+        document.getElementById('pDocente').innerText = 'Docente: ' + nombre;
+        document.getElementById('idDocente').value = id;
+    } else {
+        document.getElementById('pDocenteF').innerText = 'Docente: ' + nombre;
+        document.getElementById('idDocenteF').value = id;
+    }
+
+    closeModalBuscarDocente();
+}
+
+
+
+
+inputDocente.addEventListener("input", () => {
+    const filtro = inputDocente.value.toLowerCase().trim();
+
+    docentes.forEach(doc => {
+        const nombre = doc.textContent.toLowerCase();
+
+        if (nombre.includes(filtro)) {
+            doc.style.display = "block";
+        } else {
+            doc.style.display = "none";
+        }
+    });
+});
 
 //al cargar la pagina se ejecuta la funcion
 window.onload = listar('');
