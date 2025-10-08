@@ -18,13 +18,13 @@ if (isset($_GET["search"]) && !empty($_GET["search"])) {
             INNER JOIN docentes p ON a.idProfesor = p.id 
             INNER JOIN carreras_asignaturas ca ON a.id = ca.idAsignatura 
             INNER JOIN carreras c ON ca.idCarrera = c.id 
-            WHERE a.nombre LIKE ? OR p.nombre LIKE ? OR p.apellido LIKE ? 
+            WHERE a.nombre LIKE ? OR p.nombre LIKE ? OR p.apellido LIKE ? OR c.nombre LIKE ?
             GROUP BY a.id, a.nombre, a.anio, p.id, p.nombre, p.apellido";
             
     $search_term = "%" . $_GET['search'] . "%"; 
     
     if ($stmt = $conexion->prepare($sql)) {
-        $stmt->bind_param("sss", $search_term, $search_term, $search_term);
+        $stmt->bind_param("ssss", $search_term, $search_term, $search_term, $search_term);
 
         $stmt->execute();
         $resultado = $stmt->get_result(); 
