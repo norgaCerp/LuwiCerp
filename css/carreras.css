@@ -1,0 +1,159 @@
+
+.contenedorCarreras {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.loadData {
+    width: 100%;
+    padding: 20px;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.titleCarrera {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.33);
+    color: var(--white);
+    text-align: left;
+    cursor: default;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+
+.emptyBox {
+    position: fixed;
+    top: 200;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 100px;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: var(--gray-300);
+    font-weight: 700;
+}
+
+.emptyBox span {
+    font-size: 88px;
+}
+
+#colorInput{
+    margin-bottom: 10px;
+}
+
+#colorInput1{
+    margin-bottom: 10px;
+}
+
+.btnEliminarCarrera{
+    padding: 10px 15px 10px 10px;
+    height: 40px;
+    background-color: var(--red-normal);
+    border: 1px solid var(--red-normal);
+    border-radius: 10px;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+.btnEliminarCarrera:hover{
+    cursor: pointer;
+    background-color: var(--red-hover);
+    border: 1px solid var(--red-hover);
+}
+.btnCaja{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btnCarreraEdit{
+    width: 40px;
+    height: 40px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.15);
+    color: var(--white);
+    transition: all 0.2s ease;
+}
+.btnCarreraEdit:hover{
+    cursor: pointer;
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    color: var(--green-normal);
+}
+
+.btnCarreraDel{
+    width: 40px;
+    height: 40px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.15);
+    color: var(--white);
+    transition: all 0.2s ease;
+}
+.btnCarreraDel:hover{
+    cursor: pointer;
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    color: var(--red-normal);
+}
+
+.item{
+    width: 100%;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.itemShadow{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: rgba(0,0,0,0);
+    opacity: 0.8;
+    display: grid;
+    grid-template-rows: 1fr 40px;
+    transition: all 0.2s ease;
+}
+.itemShadow:hover{
+    opacity: 1;
+    background-color: rgba(0,0,0,0.33);
+}
+
+.itemTop{
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    text-overflow: ellipsis;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.itemBot{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}

@@ -1,0 +1,124 @@
+.loadData{
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+.headerList{
+    width: 100%;
+    height: 45px;
+    background-color: var(--gray-800);
+    display: grid;
+    grid-template-columns: 0.6fr 1fr 1fr 1fr 0.8fr 1fr 70px 70px;
+    align-items: center;
+    border-radius: 5px;
+    position: sticky;
+    top: 0;
+}
+.headerListItem{
+    border-right: 1px solid var(--gray-600);
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    color: var(--gray-200);
+}
+.opc{
+    text-align: center;
+    padding-left: 0;
+}
+.itemListSalones{
+    width: 100%;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    display: grid;
+    grid-template-columns: 0.6fr 1fr 1fr 1fr 0.8fr 1fr 70px 70px;
+    align-items: center;
+    padding: 15px 0;
+    transition: all 0.2s ease;
+}
+.itemListSalones:hover{
+    background-color: var(--gray-100);
+    cursor: default;
+}
+.itemListSalones:hover span{
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+}
+.itemSalones{
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    font-size: 13px;
+}
+.opcList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.opcList span{
+    margin-left: -15px;
+    color: var(--gray-500);
+    padding: 7px;
+    border-radius: 25px;
+    background-color: var(--gray-100);
+    font-size: 22px;
+}
+
+.opcEditar{
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.opcEditar:hover{
+    background-color: var(--orange-normal) !important;
+    color: var(--white) !important;
+}
+
+.opcEliminar{
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.opcEliminar:hover{
+    background-color: var(--red-normal) !important;
+    color: var(--white) !important;
+}
+
+
+.emptyBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 100px;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: var(--gray-300);
+    font-weight: 700;
+}
+
+.emptyBox span {
+    font-size: 88px;
+}
+.modalBodyBox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 10px;
+}
+
+.textAreaF {
+    width: 100%;
+    height: 240px;
+    resize: none;
+    outline-color: var(--blue-normal);
+    padding: 10px;
+    border: 1px solid var(--gray-200);
+    background-color: var(--gray-100);
+    border-radius: 10px;
+}
+.tForm{
+    margin-top: -10px;
+}
