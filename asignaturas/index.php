@@ -40,9 +40,7 @@
         </div>
         <div class="bodyPrincipal">
             <div class="contenedorAsignaturas">
-                <div class="menuFilt">
-                    <div class="menuFiltContenedor"></div>
-                </div>
+                
                 <div class="loadData" id="loadData">
                     
                 </div>
