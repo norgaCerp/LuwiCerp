@@ -55,7 +55,7 @@ if ($resultado->num_rows > 0) {
             </div>
             <div class="itemBot">
                 <button class="btnCarreraEdit" 
-                        onclick='abrirModalEditar("700px", "<?= htmlspecialchars($fila['idAsignatura']); ?>","<?= htmlspecialchars($fila['nombreAsignatura']); ?>","<?= htmlspecialchars($fila['idProfesor']); ?>","<?= htmlspecialchars($fila['anio']); ?>", "<?= htmlspecialchars($fila['carreras_ids']); ?>")'>
+                        onclick='abrirModalEditar("700px", "<?= htmlspecialchars($fila['idAsignatura']); ?>","<?= htmlspecialchars($fila['nombreAsignatura']); ?>","<?= htmlspecialchars($fila['idProfesor']); ?>","<?= htmlspecialchars($fila['nombreProfesor']); ?>","<?= htmlspecialchars($fila['anio']); ?>", "<?= htmlspecialchars($fila['carreras_ids']); ?>")'>
                     <span class="material-symbols-rounded">edit_square</span>
                 </button>
                 <button class="btnCarreraDel" 

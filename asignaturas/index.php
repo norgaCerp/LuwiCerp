@@ -15,6 +15,7 @@
     <?php include 'modalAgregar.php'; ?>
     <?php include 'modalEditar.php'; ?>
     <?php include 'modalEliminar.php'; ?>
+    <?php include 'modalBuscarProf.php'; ?>
 
     <?php include '../components/menu.php'; ?>
     <!-- se hace include los componentes de notificaciones -->
