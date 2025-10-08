@@ -1,0 +1,343 @@
+.contenedorDias {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.itemDias {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-300);
+    font-size: 11px;
+    font-weight: 600;
+    background-color: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.itemDias:hover {
+    background-color: var(--gray-700);
+    color: var(--white);
+}
+
+.itemDiasActive {
+    background-color: var(--primary-normal) !important;
+    color: var(--gray-800) !important;
+}
+
+.contenedorSemestre {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.itemSem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-300);
+    background-color: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.itemSem:hover {
+    background-color: var(--gray-700);
+    color: var(--white);
+}
+
+.itemSemestreActive {
+    background-color: var(--primary-normal) !important;
+    color: var(--gray-800) !important;
+}
+
+.contenedorSalonario {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.salonarioBox {
+    display: flex;
+    flex-wrap: nowrap;     /* que no salten de línea */
+    width: max-content;   
+    height: max-content;
+}
+.salonarioDate {
+    width: 120px;
+    height: 100%;
+    border-right: 1px solid var(--gray-600);
+    background-color: var(--gray-800);
+    position: sticky !important;
+    top: 0;
+    left: 0;
+    z-index: 150;
+}
+
+.itemHora {
+    width: 100%;
+    height: 180px;
+    border-bottom: 1px solid var(--gray-700);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.princ {
+    height: 40px;
+    position: sticky;
+    color: var(--white);
+    background-color: var(--gray-800);
+    border-top: 1px solid var(--gray-700);
+    top: 0;
+    gap: 5px;
+    font-size: 11px;
+    padding: 5px;
+}
+
+.princ span {
+    font-size: 17px;
+}
+
+.princIn {
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue-normal);
+    border: 1px solid var(--blue-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+
+.salonarioColumna {
+   display: flex;
+   flex-wrap: nowrap;
+}
+
+.itemSalon {
+    width: 320px;
+    min-width: 320px;
+    border-right: 1px solid var(--gray-200);
+    transition: all 0.2s ease;
+}
+
+.itemSalonData {
+    width: 100%;
+    height: 180px;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-600);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.titleData {
+    height: 40px;
+    color: var(--white);
+    background-color: var(--gray-800) !important;
+    border: 1px solid var(--gray-700) !important;
+    text-transform: uppercase;
+    gap: 5px;
+    font-size: 12px;
+    z-index: 130;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+}
+
+.titleData div {
+    background-color: var(--gray-800);
+    border: 1px solid var(--gray-800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease;
+}
+
+.itemSalon:hover .titleData div {
+    background-color: var(--gray-700);
+    border: 1px solid var(--gray-500);
+}
+
+.itemSalonLine {
+    width: 4px;
+    background-color: var(--gray-800);
+}
+
+.itemLibre {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: var(--gray-100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.itemLibre span {
+    font-size: 32px;
+}
+
+.itemLibre:hover {
+    background: #f0fdf4;
+    color: #22c55e;
+    border: 1px solid #3ce67a;
+}
+
+.itemOcupado {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.itemOcupado:hover {
+    cursor: pointer;
+    z-index: 10;
+    transform: scale(1.02);
+}
+
+.titleItemCarrera {
+    width: 100%;
+    text-align: left;
+    border-radius: 8px;
+    padding: 3px 10px;
+    color: var(--white);
+    font-size: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.titleItemGrado {
+    width: 100%;
+    text-align: left;
+    border-radius: 8px;
+    padding: 3px 10px;
+    color: var(--white);
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.titleItemAsig {
+    width: 100%;
+    text-align: left;
+    border-radius: 8px;
+    padding: 3px 10px;
+    color: var(--white);
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.titleItemBox {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    align-items: center;
+    gap: 5px;
+}
+
+.titleItemDoce {
+    width: 100%;
+    text-align: left;
+    border-radius: 8px;
+    font-weight: 400;
+    padding: 3px 10px;
+    color: var(--white);
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.titleItemBox span {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: var(--white);
+    opacity: 0.5;
+    transition: all 0.2s ease;
+}
+
+.itemOcupado:hover .titleItemBox span {
+    background-color: var(--white);
+    color: var(--gray-700);
+    opacity: 1;
+}
+
+.modalFooterInner{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnEliminarAsig{
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--gray-300);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gray-800);
+    background-color: var(--gray-200);
+    transition: all 0.2s ease;
+}
+.btnEliminarAsig:hover{
+    cursor: pointer;
+    color: var(--white);
+    border: 1px solid var(--red-normal);
+    background-color: var(--red-normal);
+}
+
+.btnBoxFooter{
+    display: flex;
+    gap: 10px;
+}
