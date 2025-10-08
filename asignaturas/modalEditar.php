@@ -36,7 +36,7 @@
                         </div>
                         <div class="buscarDoc">
                             <div onclick="openModalBuscarDocente('500px', 'editar')" class="btnBuscarDoc"><span class="material-symbols-rounded">group_add</span><p>AGREGAR DOCENTE</p></div>
-                            <p id="pDocenteF"><- Seleccione un docente</p>
+                            <p class="pDocente" id="pDocenteF">Seleccione un docente</p>
                             <input style="display: none;" type="text" name="profesor" id="idDocenteF"> 
                         </div>
                     </div>

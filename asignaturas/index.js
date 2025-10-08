@@ -54,7 +54,7 @@ function cerrarModalAgregar() {
     document.getElementById('nombreError').style.display = 'none';
     document.getElementById('anioError').style.display = 'none';
     document.getElementById('profError').style.display = 'none';
-    document.getElementById('pDocente').innerText = '<- Seleccione un docente';
+    document.getElementById('pDocente').innerText = 'Seleccione un docente';
 }
 
 // funcion para validar campos
