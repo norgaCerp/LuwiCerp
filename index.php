@@ -4,7 +4,7 @@ include 'config/database.php';
 $errorMsg = false;
 
 if (isset($_SESSION['usuario'])) {
-    header("Location: http://localhost/appSalones/docentes/");
+    header("Location: http://localhost/LuwiCerp/docentes/");
     exit;
 }
 
@@ -23,7 +23,7 @@ if (isset($_POST["user"]) && isset($_POST["pwd"])) {
 
         if ($resultado->num_rows === 1) {
             $_SESSION['usuario'] = $usuario;
-            header("Location: http://localhost/appSalones/docentes/");
+            header("Location: http://localhost/LuwiCerp/docentes/");
             exit;
         } else {
             $errorMsg = true;
