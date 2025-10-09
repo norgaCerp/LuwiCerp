@@ -42,7 +42,7 @@
             <div class="contenedorAsignaturas">
                 
                 <div class="loadData" id="loadData">
-                    
+
                 </div>
             </div>
         </div>
