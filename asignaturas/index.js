@@ -16,6 +16,8 @@ function listar(search) {
         });
 }
 
+
+
 //funcion para abrir modal agregar asignatura
 function abrirModalAgregar(w) {
     var modal = document.getElementById('modalAgregarAsignatura');
@@ -104,7 +106,7 @@ function abrirModalEditar(w, id, nombre, idProf, nomProf, anio, carreraId) {
     document.getElementById('idF').value = id;
     document.getElementById('nombreF').value = nombre;
     document.getElementById('selectAnioF').value = anio;
-    document.getElementById('accion').value='editar';
+    document.getElementById('accion').value = 'editar';
     docenteSeleccionado(idProf, nomProf);
 
     let ids = carreraId.split(",");

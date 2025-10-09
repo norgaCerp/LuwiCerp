@@ -7,27 +7,32 @@ $resultado = null;
 
 if (isset($_GET["search"]) && !empty($_GET["search"])) {
     $sql = "SELECT 
-                a.id AS idAsignatura,
-                a.nombre AS nombreAsignatura,
-                a.anio as anio,
-                p.id AS idProfesor,
-                CONCAT(p.nombre, ' ', p.apellido) AS nombreProfesor,
-                GROUP_CONCAT(c.id SEPARATOR ',') AS carreras_ids,
-                GROUP_CONCAT(c.nombre SEPARATOR ', ') AS carreras 
-            FROM asignaturas a 
-            INNER JOIN docentes p ON a.idProfesor = p.id 
-            INNER JOIN carreras_asignaturas ca ON a.id = ca.idAsignatura 
-            INNER JOIN carreras c ON ca.idCarrera = c.id 
-            WHERE a.nombre LIKE ? OR p.nombre LIKE ? OR p.apellido LIKE ? OR c.nombre LIKE ?
-            GROUP BY a.id, a.nombre, a.anio, p.id, p.nombre, p.apellido";
-            
-    $search_term = "%" . $_GET['search'] . "%"; 
-    
+    a.id AS idAsignatura,
+    a.nombre AS nombreAsignatura,
+    a.anio AS anio,
+    p.id AS idProfesor,
+    CONCAT(p.nombre, ' ', p.apellido) AS nombreProfesor,
+    GROUP_CONCAT(DISTINCT c.id SEPARATOR ',') AS carreras_ids,
+    GROUP_CONCAT(DISTINCT c.nombre SEPARATOR ', ') AS carreras
+FROM asignaturas a
+INNER JOIN docentes p ON a.idProfesor = p.id
+INNER JOIN carreras_asignaturas ca ON a.id = ca.idAsignatura
+INNER JOIN carreras c ON ca.idCarrera = c.id
+WHERE a.nombre LIKE ? 
+   OR p.nombre LIKE ? 
+   OR p.apellido LIKE ? 
+   OR c.nombre LIKE ?
+GROUP BY a.id, a.nombre, a.anio, p.id, p.nombre, p.apellido
+ORDER BY a.nombre;
+";
+
+    $search_term = "%" . $_GET['search'] . "%";
+
     if ($stmt = $conexion->prepare($sql)) {
         $stmt->bind_param("ssss", $search_term, $search_term, $search_term, $search_term);
 
         $stmt->execute();
-        $resultado = $stmt->get_result(); 
+        $resultado = $stmt->get_result();
     } else {
         echo 'Error en la preparación de la consulta: ' . $conexion->error;
         exit;
@@ -51,15 +56,15 @@ if ($resultado->num_rows > 0) {
             </div>
             <div class="itemMid1">
                 <span class="material-symbols-rounded">school</span>
-                <div>Carreras: <?php echo htmlspecialchars($fila["carreras"]); ?></div>
+                <div class="ca">Carreras: <?php echo htmlspecialchars($fila["carreras"]); ?></div>
             </div>
             <div class="itemBot">
-                <button class="btnCarreraEdit" 
-                        onclick='abrirModalEditar("700px", "<?= htmlspecialchars($fila['idAsignatura']); ?>","<?= htmlspecialchars($fila['nombreAsignatura']); ?>","<?= htmlspecialchars($fila['idProfesor']); ?>","<?= htmlspecialchars($fila['nombreProfesor']); ?>","<?= htmlspecialchars($fila['anio']); ?>", "<?= htmlspecialchars($fila['carreras_ids']); ?>")'>
+                <button class="btnCarreraEdit"
+                    onclick='abrirModalEditar("700px", "<?= htmlspecialchars($fila['idAsignatura']); ?>","<?= htmlspecialchars($fila['nombreAsignatura']); ?>","<?= htmlspecialchars($fila['idProfesor']); ?>","<?= htmlspecialchars($fila['nombreProfesor']); ?>","<?= htmlspecialchars($fila['anio']); ?>", "<?= htmlspecialchars($fila['carreras_ids']); ?>")'>
                     <span class="material-symbols-rounded">edit_square</span>
                 </button>
-                <button class="btnCarreraDel" 
-                        onclick='abrirModalEliminar("400px", <?= htmlspecialchars($fila['idAsignatura']); ?>)'>
+                <button class="btnCarreraDel"
+                    onclick='abrirModalEliminar("400px", <?= htmlspecialchars($fila['idAsignatura']); ?>)'>
                     <span class="material-symbols-rounded">delete</span>
                 </button>
             </div>
