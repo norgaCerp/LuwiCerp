@@ -341,3 +341,44 @@
     display: flex;
     gap: 10px;
 }
+
+.contenedorAsignas{
+    width: 100%;
+    max-height: 300px;
+    overflow: auto;
+    padding-right: 5px;
+    border-radius: 10px;
+}
+.itemAsignas{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    margin-bottom: 10px;
+}
+.itemAsignas:hover{
+    background-color: var(--gray-200);
+    border: 1px solid var(--gray-300);
+    cursor: pointer;
+}
+.itemAsignasSelect{
+    background-color: var(--green-normal) !important;
+    color: var(--white) !important;
+    border: 1px solid var(--green-normal) !important;
+    cursor: pointer;
+}
+.nombreAsignas{
+    font-weight: bold;
+    font-size: 13px;
+}
+.profAsignas{
+    font-size: 13px;
+}
+.carrerasAsignas{
+    font-size: 12px;
+}
+.carrerasAsignas span{
+    font-weight: bold;
+}

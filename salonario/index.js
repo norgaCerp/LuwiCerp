@@ -79,12 +79,17 @@ function cerrarModalAgregar() {
     }, 100);
     document.getElementById("agregarForm").reset();
     document.getElementById('asigEr').style.display = 'none';
+    document.querySelectorAll(".itemAsignas").forEach(doc => {
+        doc.style.display = "block";
+        doc.classList.remove("itemAsignasSelect");
+    });
+    document.getElementById('buscarAsignas').value='';
 }
 
 //funcion para agregar asignatura
 document.getElementById("agregarForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que se recargue la página
-    var asig = document.getElementById('selectAsigA').value;
+    var asig = document.getElementById('inputAsignas').value;
 
     if (asig == '') {
         validarCampo(asig, 'asigEr');
@@ -119,7 +124,13 @@ function abrirModalEditar(w, asignatura, dia, semestre, orden, salon, id) {
     document.getElementById('salonFormE').value = salon;
     var modal = document.getElementById('modalEditarAsignacion');
     document.getElementById('contenedorEditarAsignacion').style.display = "flex";
-    document.getElementById('selectAsigE').value = asignatura;
+    document.getElementById('inputAsignasE').value = asignatura;
+    document.querySelectorAll(".itemAsignas").forEach(doc => {
+        doc.classList.remove("itemAsignasSelect");
+    });
+    const divInterno = document.getElementById('itE'+asignatura);
+    divInterno.scrollIntoView({ behavior: "smooth", block: "center" });
+    document.getElementById('itE'+asignatura).classList.add("itemAsignasSelect");
     modal.style.width = w;
     modal.animate([{
         transform: 'scale(0.3)',
@@ -154,12 +165,16 @@ function cerrarModalEditar() {
     }, 100);
     document.getElementById("editarForm").reset();
     document.getElementById('asigErEditar').style.display = 'none';
+    document.querySelectorAll(".itemAsignas").forEach(doc => {
+        doc.style.display = "block";
+        doc.classList.remove("itemAsignasSelect");
+    });
 }
 
 //funcion para editar asignatura
 document.getElementById("editarForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que se recargue la página
-    var asig = document.getElementById('selectAsigE').value;
+    var asig = document.getElementById('inputAsignasE').value;
 
     if (asig == '') {
         validarCampo(asig, 'asigErEditar');
@@ -251,6 +266,56 @@ document.getElementById("btnEliminarAsig").addEventListener("click", function (e
     abrirModalEliminar('400px', document.getElementById("idF").value);
 });
 
+function selectAsignas(id){
+    document.getElementById('inputAsignas').value=id;
+    let items = document.querySelectorAll(".itemAsignas");
+    items.forEach(el => el.classList.remove("itemAsignasSelect"));
+    let activo = document.getElementById('it'+id);
+    if (activo) {
+        activo.classList.add("itemAsignasSelect");
+    }
+}
+function selectAsignasE(id){
+    document.getElementById('inputAsignasE').value=id;
+    let items = document.querySelectorAll(".itemAsignas");
+    items.forEach(el => el.classList.remove("itemAsignasSelect"));
+    let activo = document.getElementById('itE'+id);
+    if (activo) {
+        activo.classList.add("itemAsignasSelect");
+    }
+}
+
+const buscarAsignas = document.getElementById("buscarAsignas");
+const asignas = document.querySelectorAll(".itemAsignas");
+buscarAsignas.addEventListener("input", () => {
+    const filtro = buscarAsignas.value.toLowerCase().trim();
+
+    asignas.forEach(doc => {
+        const nombre = doc.textContent.toLowerCase();
+
+        if (nombre.includes(filtro)) {
+            doc.style.display = "block";
+        } else {
+            doc.style.display = "none";
+        }
+    });
+});
+
+const buscarAsignasE = document.getElementById("buscarAsignasE");
+const asignasE = document.querySelectorAll(".itemAsignas");
+buscarAsignasE.addEventListener("input", () => {
+    const filtro = buscarAsignasE.value.toLowerCase().trim();
+
+    asignasE.forEach(doc => {
+        const nombre = doc.textContent.toLowerCase();
+
+        if (nombre.includes(filtro)) {
+            doc.style.display = "block";
+        } else {
+            doc.style.display = "none";
+        }
+    });
+});
 
 let dias = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 let hoy = new Date();
