@@ -17,26 +17,39 @@
                     <p>Asignatura:</p>
                     <span id="asigEr">Campo obligatorio!</span>
                 </div>
-                <div class="select-wrapper">
-                    <select id="selectAsigA" name="asignatura">
-                        <option value="">Seleccione una opción</option>
-                        <?php
-                        $sql = "SELECT * FROM asignaturas";
-                        $resultado = $conexion->query($sql);
-                        if ($resultado->num_rows > 0) {
-                            while ($fila = $resultado->fetch_assoc()) {
-                        ?>
-                                <option value="<?php echo htmlspecialchars($fila["id"]); ?>"><?php echo htmlspecialchars($fila["nombre"]); ?></option>
-                        <?php
-                            }
-                        } else {
-                        ?>
-                            <option value="">No hay registro</option>
+                <input type="text" class="inputForm" id="buscarAsignas" placeholder="Buscar asignaturas...">
+                <div class="contenedorAsignas">
+                    <?php
+                    $sql = "SELECT 
+                            a.id,
+                            a.nombre, 
+                            CONCAT(d.nombre, ' ', d.apellido) AS nombreProfesor ,
+                            GROUP_CONCAT(DISTINCT c.nombre SEPARATOR ', ') AS carreras
+                        FROM asignaturas a 
+                            INNER JOIN docentes d ON a.idProfesor=d.id
+                            INNER JOIN carreras_asignaturas ca ON a.id = ca.idAsignatura
+                            INNER JOIN carreras c ON ca.idCarrera = c.id
+                            GROUP BY a.id, a.nombre, d.nombre, d.apellido
+                    ";
+                    $resultado = $conexion->query($sql);
+                    if ($resultado->num_rows > 0) {
+                        while ($fila = $resultado->fetch_assoc()) {
+                    ?>
+                            <div class="itemAsignas" id="it<?php echo htmlspecialchars($fila["id"]); ?>" onclick="selectAsignas(<?php echo htmlspecialchars($fila["id"]); ?>)">
+                                <p class="nombreAsignas"><?php echo htmlspecialchars($fila["nombre"]); ?></p>
+                                <p class="profAsignas">Prof: <?php echo htmlspecialchars($fila["nombreProfesor"]); ?></p>
+                                <p class="carrerasAsignas"><span>Carreras:</span> <?php echo htmlspecialchars($fila["carreras"]); ?></p>
+                            </div>
                         <?php
                         }
+                    } else {
                         ?>
-                    </select>
+                        <div>No hay registro</div>
+                    <?php
+                    }
+                    ?>
                 </div>
+                <input type="text" name="asignatura" id="inputAsignas" style="display: none;">
             </div>
             <div class="modalFooter">
                 <input onclick='cerrarModalAgregar()' type="button" class="btnCancelar" value="CANCELAR">

@@ -61,7 +61,9 @@ include '../config/database.php';
                     </div>
                     <input type="submit" class="btnFiltrar" value="BUSCAR">
                 </div>
-                <div class="btnAux"></div>
+                <div onclick="window.location.href='/LuwiCerp/panel/'" class="btnAux" title="Resetear opciones">
+                    <span class="material-symbols-rounded">refresh</span>
+                </div>
             </header>
         </form>
         <?php

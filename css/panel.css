@@ -129,6 +129,19 @@ header{
     height: 60px;
     border-radius: 30px;
     background-color: var(--blue-hover);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    transition: all 0.2s ease;
+}
+.btnAux span{
+    font-size: 38px;
+}
+.btnAux:hover{
+    color: var(--blue-normal);
+    background-color: var(--white);
+    cursor: pointer;
 }
 .headerDias{
     width: 100%;
