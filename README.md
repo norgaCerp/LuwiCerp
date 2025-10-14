@@ -4,7 +4,8 @@
 ---
 
 ## 🏫 Descripción  
-Este proyecto surge de la necesidad de **solucionar una problemática en nuestra institución (CERP del Litoral - Salto)**.  
+Este proyecto surge de la necesidad de **solucionar la problemática de nuestra institución (CERP del Litoral - Salto) la cual es la falta de una app de gestión de salones para los administrativos**.
+Actualmente la gestión de salones de la institución se hace de manera tradicional, utilizando planillas impresas, las cuales pueden generar confusión la hora de organizar todas las carreras.
 Para abordar este desafío, aplicamos los conocimientos adquiridos en las siguientes asignaturas:
 
 - **Ingeniería de Software** — dictada por *Guillermo Uscudum*  
