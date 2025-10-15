@@ -1,3 +1,4 @@
+//Se escucha el evento submit para realizar comprobaciones si algun select esta vacio
 document.getElementById("formFiltrar").addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que se recargue la página
     var carrera = document.getElementById('selectCarrera').value;
@@ -11,6 +12,7 @@ document.getElementById("formFiltrar").addEventListener("submit", function (e) {
     }
 });
 
+//En caso de venir la url con variables get se rellena los select
 function rellenar(){
     var inCarrera = document.getElementById('inCarrera').value; 
     var inAnio = document.getElementById('inAnio').value;
