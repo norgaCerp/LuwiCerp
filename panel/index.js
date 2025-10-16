@@ -28,4 +28,5 @@ function rellenar(){
     }
 }
 
+//al cargar la pagina se ejecuta la funcion rellenar
 window.onload= rellenar();
