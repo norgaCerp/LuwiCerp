@@ -13,7 +13,7 @@
                     <span>Campo obligatorio!</span>
                 </div>
                 <!-- agregar el readonly para bloquear la edicion del documento al editar docente -->
-                <input type="number" id="documentoF" name="documento" class="inputForm">
+                <input type="number" id="documentoF" name="documento" class="inputForm" readonly>
                 <div class="tituloForm">
                     <p>Nombre:</p>
                     <span>Campo obligatorio!</span>

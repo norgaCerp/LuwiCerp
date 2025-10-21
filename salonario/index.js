@@ -83,54 +83,70 @@ function cerrarModalAgregar() {
         doc.style.display = "block";
         doc.classList.remove("itemAsignasSelect");
     });
-    document.getElementById('buscarAsignas').value='';
+    document.getElementById('buscarAsignas').value = '';
 }
+
+//funcion para verificar si el docente esta asignado a una franja horaria
+function verificarFranja(orden, nombre) {
+  const nomProf = [...document.querySelectorAll('.nomP' + orden)];
+
+  // Devuelve true si ninguno coincide
+  const ningunoCoincide = nomProf.every(p => p.textContent !== nombre);
+
+  return ningunoCoincide;
+}
+
 
 //funcion para agregar asignatura
 document.getElementById("agregarForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que se recargue la página
     var asig = document.getElementById('inputAsignas').value;
 
-    if (asig == '') {
-        validarCampo(asig, 'asigEr');
-    } else {
-        // Capturamos los datos del formulario
-        const datos = new FormData(this);
-        // Enviamos con fetch
-        fetch("fetchAgregar.php", {
-            method: "POST",
-            body: datos
-        })
-            .then(res => res.text())
-            .then(data => {
-                if (data == 'ok') {
-
-                    cargarSalonario(document.getElementById('inputDias').value, document.getElementById('inputSem').value);
-                    cerrarModalAgregar();
-                    msgConfirmacion('La asignación se agregó correctamente!');
-                } else {
-                    msgError(data);
-                }
+    if (verificarFranja(document.getElementById('ordenForm').value, document.getElementById('nomProfV').value) === true) {
+        if (asig == '') {
+            validarCampo(asig, 'asigEr');
+        } else {
+            // Capturamos los datos del formulario
+            const datos = new FormData(this);
+            // Enviamos con fetch
+            fetch("fetchAgregar.php", {
+                method: "POST",
+                body: datos
             })
-            .catch(error => msgError('Ocurrio un error! ' + error));
+                .then(res => res.text())
+                .then(data => {
+                    if (data == 'ok') {
+
+                        cargarSalonario(document.getElementById('inputDias').value, document.getElementById('inputSem').value);
+                        cerrarModalAgregar();
+                        msgConfirmacion('La asignación se agregó correctamente!');
+                    } else {
+                        msgError(data);
+                    }
+                })
+                .catch(error => msgError('Ocurrio un error! ' + error));
+        }
+    } else {
+        alert('Docente ya asignado a esta franja horaria!!!');
     }
 });
 
 //funcion para modal editar asignatura
-function abrirModalEditar(w, asignatura, dia, semestre, orden, salon, id) {
+function abrirModalEditar(w, asignatura, dia, semestre, orden, salon, id, nombre) {
     document.getElementById('diaFormE').value = dia;
     document.getElementById('semestreFormE').value = semestre;
     document.getElementById('ordenFormE').value = orden;
     document.getElementById('salonFormE').value = salon;
+    document.getElementById('nomProfE').value=nombre;
     var modal = document.getElementById('modalEditarAsignacion');
     document.getElementById('contenedorEditarAsignacion').style.display = "flex";
     document.getElementById('inputAsignasE').value = asignatura;
     document.querySelectorAll(".itemAsignas").forEach(doc => {
         doc.classList.remove("itemAsignasSelect");
     });
-    const divInterno = document.getElementById('itE'+asignatura);
+    const divInterno = document.getElementById('itE' + asignatura);
     divInterno.scrollIntoView({ behavior: "smooth", block: "center" });
-    document.getElementById('itE'+asignatura).classList.add("itemAsignasSelect");
+    document.getElementById('itE' + asignatura).classList.add("itemAsignasSelect");
     modal.style.width = w;
     modal.animate([{
         transform: 'scale(0.3)',
@@ -176,28 +192,32 @@ document.getElementById("editarForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que se recargue la página
     var asig = document.getElementById('inputAsignasE').value;
 
-    if (asig == '') {
-        validarCampo(asig, 'asigErEditar');
-    } else {
-        // Capturamos los datos del formulario
-        const datos = new FormData(this);
-        // Enviamos con fetch
-        fetch("fetchEditar.php", {
-            method: "POST",
-            body: datos
-        })
-            .then(res => res.text())
-            .then(data => {
-                if (data == 'ok') {
-
-                    cargarSalonario(document.getElementById('inputDias').value, document.getElementById('inputSem').value);
-                    cerrarModalEditar();
-                    msgConfirmacion('La asignación se edito correctamente!');
-                } else {
-                    msgError(data);
-                }
+    if (verificarFranja(document.getElementById('ordenFormE').value, document.getElementById('nomProfE').value) === true) {
+        if (asig == '') {
+            validarCampo(asig, 'asigErEditar');
+        } else {
+            // Capturamos los datos del formulario
+            const datos = new FormData(this);
+            // Enviamos con fetch
+            fetch("fetchEditar.php", {
+                method: "POST",
+                body: datos
             })
-            .catch(error => msgError('Ocurrio un error! ' + error));
+                .then(res => res.text())
+                .then(data => {
+                    if (data == 'ok') {
+
+                        cargarSalonario(document.getElementById('inputDias').value, document.getElementById('inputSem').value);
+                        cerrarModalEditar();
+                        msgConfirmacion('La asignación se edito correctamente!');
+                    } else {
+                        msgError(data);
+                    }
+                })
+                .catch(error => msgError('Ocurrio un error! ' + error));
+        }
+    }else{
+        alert('Docente ya asignado a esta franja horaria!!!');
     }
 });
 
@@ -220,7 +240,7 @@ function abrirModalEliminar(w, id) {
     document.getElementById('inputId').value = id;
 }
 
-function eliminarDocente(id) {
+function eliminarSalonario(id) {
     // codigo para la peticion fetch
     fetch("fetchEliminar.php?id=" + id)
         .then(response => response.text())
@@ -240,7 +260,7 @@ function eliminarDocente(id) {
 }
 // cuando se presiona el boton de confirmar eliminacion se ejecuta la funcion eliminarDocente
 document.getElementById('btnEliminar').addEventListener('click', (event) => {
-    eliminarDocente(document.getElementById('inputId').value)
+    eliminarSalonario(document.getElementById('inputId').value)
 });
 
 function cerrarModalEliminar() {
@@ -266,20 +286,22 @@ document.getElementById("btnEliminarAsig").addEventListener("click", function (e
     abrirModalEliminar('400px', document.getElementById("idF").value);
 });
 
-function selectAsignas(id){
-    document.getElementById('inputAsignas').value=id;
+function selectAsignas(id, nom) {
+    document.getElementById('inputAsignas').value = id;
+    document.getElementById('nomProfV').value = nom;
     let items = document.querySelectorAll(".itemAsignas");
     items.forEach(el => el.classList.remove("itemAsignasSelect"));
-    let activo = document.getElementById('it'+id);
+    let activo = document.getElementById('it' + id);
     if (activo) {
         activo.classList.add("itemAsignasSelect");
     }
 }
-function selectAsignasE(id){
-    document.getElementById('inputAsignasE').value=id;
+function selectAsignasE(id, nom) {
+    document.getElementById('inputAsignasE').value = id;
+    document.getElementById('nomProfE').value = nom;
     let items = document.querySelectorAll(".itemAsignas");
     items.forEach(el => el.classList.remove("itemAsignasSelect"));
-    let activo = document.getElementById('itE'+id);
+    let activo = document.getElementById('itE' + id);
     if (activo) {
         activo.classList.add("itemAsignasSelect");
     }
