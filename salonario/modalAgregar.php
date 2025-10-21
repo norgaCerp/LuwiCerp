@@ -35,7 +35,7 @@
                     if ($resultado->num_rows > 0) {
                         while ($fila = $resultado->fetch_assoc()) {
                     ?>
-                            <div class="itemAsignas" id="it<?php echo htmlspecialchars($fila["id"]); ?>" onclick="selectAsignas(<?php echo htmlspecialchars($fila["id"]); ?>)">
+                            <div class="itemAsignas" id="it<?php echo htmlspecialchars($fila["id"]); ?>" onclick="selectAsignas(<?php echo htmlspecialchars($fila["id"]); ?>, '<?php echo htmlspecialchars($fila["nombreProfesor"]); ?>')">
                                 <p class="nombreAsignas"><?php echo htmlspecialchars($fila["nombre"]); ?></p>
                                 <p class="profAsignas">Prof: <?php echo htmlspecialchars($fila["nombreProfesor"]); ?></p>
                                 <p class="carrerasAsignas"><span>Carreras:</span> <?php echo htmlspecialchars($fila["carreras"]); ?></p>
@@ -49,6 +49,7 @@
                     }
                     ?>
                 </div>
+                <input type="text" id="nomProfV">
                 <input type="text" name="asignatura" id="inputAsignas" style="display: none;">
             </div>
             <div class="modalFooter">

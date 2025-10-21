@@ -116,13 +116,13 @@ include '../config/database.php';
                                 $fila1 = $resultadoEdit->fetch_assoc();
                                 $asig = $fila1["idAsigna"];
                         ?>
-                                <div class="itemSalonData" onclick="abrirModalEditar('500px', '<?= htmlspecialchars($asig); ?>', '<?= htmlspecialchars($_GET["dia"]); ?>', '<?= htmlspecialchars($_GET["semestre"]); ?>', '<?= htmlspecialchars($i); ?>', '<?= htmlspecialchars($fila["id"]); ?>', '<?= htmlspecialchars($fila1["idSalonario"]); ?>')">
+                                <div class="itemSalonData" onclick="abrirModalEditar('500px', '<?= htmlspecialchars($asig); ?>', '<?= htmlspecialchars($_GET["dia"]); ?>', '<?= htmlspecialchars($_GET["semestre"]); ?>', '<?= htmlspecialchars($i); ?>', '<?= htmlspecialchars($fila["id"]); ?>', '<?= htmlspecialchars($fila1["idSalonario"]); ?>', '<?= htmlspecialchars($fila1["nombreProf"]); ?> <?= htmlspecialchars($fila1["apellidoProf"]); ?>')">
                                     <div class="itemOcupado" style="background-color: <?= htmlspecialchars(explode(',', $fila1["colorCarrera"])[0]); ?>">
                                         <div class="titleItemCarrera"><?= htmlspecialchars($fila1["nombreAsig"]); ?></div>
                                         <div class="titleItemGrado"><?= htmlspecialchars($fila1["nombreCarrera"]); ?></div>
                                         <div class="titleItemAsig"><?= htmlspecialchars($fila1["anio"]); ?> Año</div>
                                         <div class="titleItemBox">
-                                            <div class="titleItemDoce">Prof: <?= htmlspecialchars($fila1["nombreProf"]); ?> <?= htmlspecialchars($fila1["apellidoProf"]); ?></div>
+                                            <div class="titleItemDoce">Prof: <p class="nomP<?php echo $i; ?>"><?= htmlspecialchars($fila1["nombreProf"]); ?> <?= htmlspecialchars($fila1["apellidoProf"]); ?></p></div>
                                             <span class="material-symbols-rounded">edit_document</span>
                                         </div>
                                     </div>
