@@ -49,7 +49,7 @@
                     }
                     ?>
                 </div>
-                <input type="text" id="nomProfV">
+                <input type="text" id="nomProfV" style="display: none;">
                 <input type="text" name="asignatura" id="inputAsignas" style="display: none;">
             </div>
             <div class="modalFooter">
